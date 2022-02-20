@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+    <title>Currency Exchange via BIN</title>
+</head>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+    </li>
+</ul>
+
+<body>
+    <h1>Currency Exchange via BIN</h1>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card bg-light mb-3 border-dark">
+                    <h2 class="card-header">Currency Convertor</h2>
+                    <div class="card-body">
+                        <p class="card-text">Get different Currency rates in the entered Card's Country Currency.
+                        </p>
+                        <a type="button" th:href="@{/convertor}" class="btn btn-primary">Currency Convertor</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-light mb-3 border-dark">
+                    <h2 class="card-header">BIN LookUp</h2>
+                    <div class="card-body">
+                        <p class="card-text">Enter first 8 digits of your card and get your card Information.</p>
+                        <a type="button" th:href="@{/binlookup}" class="btn btn-primary">BIN LookUp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container-fluid">
+        <div class="row justify-content-mx-center">
+            <div class="row">
+                <div class="col-5 mx-auto">
+                    <h2>Currency Convertor</h2>
+                    <ul>
+                        <li>You can find out the Exchange Rates</li>
+                        <li>It will detect the entered BIN number's Country and currency</li>
+                        <li>You can enter the Amount to be converted and get in card's currency</li>
+                    </ul>
+                </div>
+                <div class="col-5 mx-auto">
+                    <h2>BIN LookUp</h2>
+                    <ul>
+                        <li>You can get Information about your card</li>
+                        <li>You need to enter your first 8 digits</li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-4 d-grid mx-auto">
+                    <a type="button" th:href="@{/convertor}" class="btn btn-primary">Currency Convertor</a>
+                </div>
+                <div class="col-4 d-grid mx-auto">
+                    <a type="button" th:href="@{/binlookup}" class="btn btn-primary">BIN LookUp</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BIN Lookup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/}">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">BIN</a>
+    </li>
+</ul>
+
+<body>
+    <h1>BIN Lookup</h1>
+    <form th:action="@{/binlookup}" method="post">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" id="card_number">Enter first 4 digit of Card Number</label>
+                    <input type="number" name="card_number" class="form-control" value="" autocomplete="off"
+                        th:placeholder="${card_number}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 d-grid mx-auto">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+
+    <div>
+        <table class="table align-middle table-borderless bin-table">
+            <thead>
+                <tr class="">
+                    <th>Scheme</th>
+                    <th>Type</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${scheme}"></td>
+                    <td th:text="${type}"></td>
+                    <td th:text="${country}"></td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Currency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${brand}"></td>
+                    <td th:text="${currency}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-3 d-grid mx-auto">
+            <a type="button" class="btn btn-primary" th:href="@{/binlookup}">Reset</a>
+        </div>
+    </div>
+    <br>
+    <br>
+</body>
+
+<footer>
+    <h4>To see different Currency Rates check <a th:href="@{/convertor}">here</a></h4>
+</footer>
+
+</html>

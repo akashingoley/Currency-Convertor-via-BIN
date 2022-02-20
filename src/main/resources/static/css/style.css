@@ -1,0 +1,50 @@
+body {
+    background-color: aquamarine;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-tabs {
+    border-bottom: 1.5px solid black;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+}
+
+h1 {
+    margin: 2% auto;
+    text-decoration: underline;
+}
+
+.container-fluid {
+    padding: 3% 25%;
+}
+
+.form-label {
+    font-size: x-large;
+    margin-bottom: 0;
+}
+
+.form-control:disabled {
+    background-color: white;
+}
+
+.btn {
+    font-size: large;
+}
+
+.table {
+    margin: auto auto 5% auto;
+    width: 70%;
+    align-items: center;
+    font-size: large;
+}
+
+.bin-table {
+    margin: 2% auto;
+}
+
+.footer {
+    margin: 5% auto;
+}
