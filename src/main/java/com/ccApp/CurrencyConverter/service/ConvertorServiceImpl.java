@@ -2,7 +2,7 @@ package com.ccApp.CurrencyConverter.service;
 
 import java.util.List;
 
-import com.ccApp.CurrencyConverter.model.CurrencyConverter;
+import com.ccApp.CurrencyConverter.model.CurrencyConvertor;
 import com.ccApp.CurrencyConverter.repository.ConvertorRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,12 @@ public class ConvertorServiceImpl implements ConvertorService {
     private ConvertorRepo convertorRepo;
 
     @Override
-    public List<CurrencyConverter> getAllData() {
+    public List<CurrencyConvertor> getAllData() {
         return convertorRepo.findAll();
     }
 
     @Override
-    public void saveData(CurrencyConverter currencyConverter) {
+    public void saveData(CurrencyConvertor currencyConverter) {
         this.convertorRepo.save(currencyConverter);
     }
 

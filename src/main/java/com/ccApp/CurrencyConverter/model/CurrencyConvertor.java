@@ -15,7 +15,7 @@ import java.text.DecimalFormat;
 
 @Entity
 @Table(name = "Conversion")
-public class CurrencyConverter {
+public class CurrencyConvertor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,11 +34,10 @@ public class CurrencyConverter {
     private double converted_amount;
     @Column(name = "Exchange_Rate")
     private double exchange_rate;
-    
-    public CurrencyConverter() {
+
+    public CurrencyConvertor() {
     }
 
-    
     // Getters and setters
 
     public long getId() {
@@ -106,7 +105,7 @@ public class CurrencyConverter {
     }
 
     private String country;
-    
+
     public String getCountry() {
         return country;
     }
@@ -115,28 +114,28 @@ public class CurrencyConverter {
         this.country = country;
     }
 
-
-
     public void exchange(String apiKey) {
 
         // Fecthing date
         long millis = System.currentTimeMillis();
         this.date = new Date(millis);
 
-        // For consuming api services 
+        // For consuming api services
         RestTemplate restTemplate = new RestTemplate();
 
-        // Fetching country currency from card number
-        BinLookup binLookup = new BinLookup();
+        if (card_number > 0) {
+            // Fetching country currency from card number
+            BinLookup binLookup = new BinLookup();
 
-        binLookup.findInfo(card_number);
+            binLookup.findInfo(card_number);
 
-        to_code = binLookup.getCurrency();
-        country = binLookup.getCountry();
+            to_code = binLookup.getCurrency();
+            country = binLookup.getCountry();
+        }
 
-        // Fetching exchange rate 
+        // Fetching exchange rate
         String ex_rate_url = "https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/" + from_code + "/" + to_code;
-        
+
         Exchange conversion_rate = restTemplate.getForObject(ex_rate_url, Exchange.class);
 
         // Current conversion rate

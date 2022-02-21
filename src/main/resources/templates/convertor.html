@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Currency Convertor</title>
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Style CSS  -->
     <link rel="stylesheet" th:href="@{/css/style.css}" />
-    <script>
-        function visible() {
-            document.getElementById("card_number").style.visibility = "visible";
-        }
-    </script>
+    <!-- Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,500&display=swap"
+        rel="stylesheet">
 </head>
 
 <ul class="nav nav-tabs">
@@ -21,17 +23,40 @@
     <li class="nav-item">
         <a class="nav-link disabled" href="#">Convertor</a>
     </li>
+    <h1 class="convertor-header">Currency Convertor</h1>
+    <ul class="nav ms-auto">
+        <li class="nav-item ">
+            <a class="nav-link" th:href="@{/binlookup}">BIN LookUp</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" th:href="@{/convertor/database}">Database</a>
+        </li>
+    </ul>
 </ul>
 
 <body>
-    <h1>Currency Convertor</h1>
+    <h3>Find Foreign Currency in your own Currency</h3>
     <form th:action="@{/convertor}" method="post">
         <div class="container-fluid">
             <div class="row">
+                <label class="form-label" th:text="${error_message}"></label>
+            </div>
+            <div class="row">
                 <div class="col">
-                    <label class="form-label" id="card_number">First 8 digits of Card</label>
-                    <input type="number" name="card_number" class="form-control" value="" required
-                        autocomplete="off">
+                    <label class="form-label">From</label>
+                    <select name="from_code" class="form-select" required>
+                        <option value="">Please Select a Currency</option>
+                        <option value="INR">Indian Rupees</option>
+                        <option value="GBP">British Pound Sterling</option>
+                        <option value="USD">U.S. Dollars</option>
+                        <option value="EUR">European Euro</option>
+                        <option value="CAD">Canadian Dollars</option>
+                        <option value="AUD">Australian Dollars</option>
+                        <option value="CHF">Swiss Franc</option>
+                        <option value="SGD">Singapore Dollars</option>
+                        <option value="JPY">Japanese Yen</option>
+                        <option value="KWD">Kuwaiti Dinar</option>
+                    </select>
                 </div>
                 <div class="col">
                     <label class="form-label">Amount</label>
@@ -41,16 +66,69 @@
             </div>
             <div class="row">
                 <div class="col">
+                    <label class="form-label" id="card_number">To</label>
+                    <input type="number" name="card_number" class="form-control" value="" id="card_number"
+                        onkeypress="if(this.value.length==8) return false;" placeholder="First 8 digits of card"
+                        autocomplete="off" required>
+                </div>
+                <div class="col">
+                    <label class="form-label">Converted Amount</label>
+                    <input type="text" name="to_amount" min="0" step=".001" th:value="${to_amount}" disabled
+                        autocomplete="off" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 d-grid gap-2 mx-auto">
+                <button type="submit" name="card" class="btn btn-primary">Calculate</button>
+                <a type="button" class="btn btn-primary" th:href="@{/convertor}">Reset</a>
+            </div>
+        </div>
+    </form>
+    <div>
+        <h4 th:text="${message}"></h4>
+    </div>
+    <h3>Find different Currency Rates</h3>
+    <form th:action="@{/convertor}" method="post">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
                     <label class="form-label">From</label>
                     <select name="from_code" class="form-select" required>
                         <option value="">Please Select a Currency</option>
-                        <option value="INR">INR</option>
-                        <option value="USD">USD</option>
-                        <option value="CAD">CAD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="SGD">SGD</option>
-                        <option value="JPY">JPY</option>
-                        <option value="GBP">GBP</option>
+                        <option value="INR">Indian Rupees</option>
+                        <option value="GBP">British Pound Sterling</option>
+                        <option value="USD">U.S. Dollars</option>
+                        <option value="EUR">European Euro</option>
+                        <option value="CAD">Canadian Dollars</option>
+                        <option value="AUD">Australian Dollars</option>
+                        <option value="CHF">Swiss Franc</option>
+                        <option value="SGD">Singapore Dollars</option>
+                        <option value="JPY">Japanese Yen</option>
+                        <option value="KWD">Kuwaiti Dinar</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="form-label">Amount</label>
+                    <input type="number" name="from_amount" min="0" step=".0001" required autocomplete="off"
+                        th:placeholder="${from_amount}" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">To</label>
+                    <select name="to_code" class="form-select" required>
+                        <option value="">Please Select a Currency</option>
+                        <option value="INR">Indian Rupees</option>
+                        <option value="GBP">British Pound Sterling</option>
+                        <option value="USD">U.S. Dollars</option>
+                        <option value="EUR">European Euro</option>
+                        <option value="CAD">Canadian Dollars</option>
+                        <option value="AUD">Australian Dollars</option>
+                        <option value="CHF">Swiss Franc</option>
+                        <option value="SGD">Singapore Dollars</option>
+                        <option value="JPY">Japanese Yen</option>
+                        <option value="KWD">Kuwaiti Dinar</option>
                     </select>
                 </div>
                 <div class="col">
@@ -62,21 +140,13 @@
         </div>
         <div class="row">
             <div class="col-3 d-grid gap-2 mx-auto">
-                <button type="submit" class="btn btn-primary">Calculate</button>
+                <button type="submit" name="currency" class="btn btn-primary">Calculate</button>
                 <a type="button" class="btn btn-primary" th:href="@{/convertor}">Reset</a>
             </div>
         </div>
     </form>
     <br>
     <br>
-    <div>
-        <h3 th:text="${message}"></h3>
-    </div>
-    <br>
 </body>
-
-<footer>
-    <h4>For more Information related to your Card check <a th:href="@{/binlookup}">here</a></h4>
-</footer>
 
 </html>

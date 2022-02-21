@@ -2,11 +2,11 @@ package com.ccApp.CurrencyConverter.service;
 
 import java.util.List;
 
-import com.ccApp.CurrencyConverter.model.CurrencyConverter;
+import com.ccApp.CurrencyConverter.model.CurrencyConvertor;
 
 public interface ConvertorService {
     
-    List<CurrencyConverter> getAllData();
-    void saveData(CurrencyConverter currencyConverter);
+    List<CurrencyConvertor> getAllData();
+    void saveData(CurrencyConvertor currencyConverter);
     void deleteData(Long id);
 }
