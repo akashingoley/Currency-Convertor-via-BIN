@@ -1,8 +1,8 @@
-package com.ccApp.CurrencyConverter.service;
+package com.ccApp.CurrencyConvertor.service;
 
 import java.util.List;
 
-import com.ccApp.CurrencyConverter.model.BinLookup;
+import com.ccApp.CurrencyConvertor.model.BinLookup;
 
 public interface BinService {
     

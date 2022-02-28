@@ -1,6 +1,6 @@
-package com.ccApp.CurrencyConverter.repository;
+package com.ccApp.CurrencyConvertor.repository;
 
-import com.ccApp.CurrencyConverter.model.CurrencyConvertor;
+import com.ccApp.CurrencyConvertor.model.CurrencyConvertor;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

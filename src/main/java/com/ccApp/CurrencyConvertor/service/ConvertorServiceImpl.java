@@ -1,9 +1,9 @@
-package com.ccApp.CurrencyConverter.service;
+package com.ccApp.CurrencyConvertor.service;
 
 import java.util.List;
 
-import com.ccApp.CurrencyConverter.model.CurrencyConvertor;
-import com.ccApp.CurrencyConverter.repository.ConvertorRepo;
+import com.ccApp.CurrencyConvertor.model.CurrencyConvertor;
+import com.ccApp.CurrencyConvertor.repository.ConvertorRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

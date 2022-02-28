@@ -1,6 +1,6 @@
-package com.ccApp.CurrencyConverter.repository;
+package com.ccApp.CurrencyConvertor.repository;
 
-import com.ccApp.CurrencyConverter.model.BinLookup;
+import com.ccApp.CurrencyConvertor.model.BinLookup;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,9 +1,9 @@
-package com.ccApp.CurrencyConverter.controller;
+package com.ccApp.CurrencyConvertor.controller;
 
-import com.ccApp.CurrencyConverter.model.BinLookup;
-import com.ccApp.CurrencyConverter.model.CurrencyConvertor;
-import com.ccApp.CurrencyConverter.service.BinService;
-import com.ccApp.CurrencyConverter.service.ConvertorService;
+import com.ccApp.CurrencyConvertor.model.BinLookup;
+import com.ccApp.CurrencyConvertor.model.CurrencyConvertor;
+import com.ccApp.CurrencyConvertor.service.BinService;
+import com.ccApp.CurrencyConvertor.service.ConvertorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,17 +41,17 @@ public class MainController {
 
     // When card number is inserted
     @PostMapping(value = "/convertor", params = "card")
-    public String convertorSaveDataCard(CurrencyConvertor currencyConverter, Model model) {
+    public String convertorSaveDataCard(CurrencyConvertor currencyConvertor, Model model) {
 
         try {
-            currencyConverter.exchange(apiKey);
-            convertorService.saveData(currencyConverter);
+            currencyConvertor.exchange(apiKey);
+            convertorService.saveData(currencyConvertor);
 
-            String from = currencyConverter.getFrom_amount() + " " + currencyConverter.getFrom_code();
-            String to = currencyConverter.getConverted_amount() + " " + currencyConverter.getTo_code();
+            String from = currencyConvertor.getFrom_amount() + " " + currencyConvertor.getFrom_code();
+            String to = currencyConvertor.getConverted_amount() + " " + currencyConvertor.getTo_code();
 
-            String message = "The card is from " + currencyConverter.getCountry() + " and the currency is "
-                    + currencyConverter.getTo_code();
+            String message = "The card is from " + currencyConvertor.getCountry() + " and the currency is "
+                    + currencyConvertor.getTo_code();
             model.addAttribute("from_amount", from);
             model.addAttribute("to_amount", to);
             model.addAttribute("message", message);
@@ -65,17 +65,17 @@ public class MainController {
 
     // When to_code is given
     @PostMapping(value = "/convertor", params = "currency")
-    public String convertorSaveDataCurr(CurrencyConvertor currencyConverter, Model model) {
+    public String convertorSaveDataCurr(CurrencyConvertor currencyConvertor, Model model) {
 
         try {
-            currencyConverter.exchange(apiKey);
-            convertorService.saveData(currencyConverter);
+            currencyConvertor.exchange(apiKey);
+            convertorService.saveData(currencyConvertor);
 
-            String from = currencyConverter.getFrom_amount() + " " + currencyConverter.getFrom_code();
-            String to = currencyConverter.getConverted_amount() + " " + currencyConverter.getTo_code();
+            String from = currencyConvertor.getFrom_amount() + " " + currencyConvertor.getFrom_code();
+            String to = currencyConvertor.getConverted_amount() + " " + currencyConvertor.getTo_code();
 
-            String message = "The card is from " + currencyConverter.getCountry() + " and the currency is "
-                    + currencyConverter.getTo_code();
+            String message = "The card is from " + currencyConvertor.getCountry() + " and the currency is "
+                    + currencyConvertor.getTo_code();
             model.addAttribute("from_amount", from);
             model.addAttribute("to_amount", to);
             model.addAttribute("message", message);

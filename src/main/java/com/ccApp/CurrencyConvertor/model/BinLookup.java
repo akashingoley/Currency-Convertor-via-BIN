@@ -1,4 +1,4 @@
-package com.ccApp.CurrencyConverter.model;
+package com.ccApp.CurrencyConvertor.model;
 
 import java.sql.Date;
 

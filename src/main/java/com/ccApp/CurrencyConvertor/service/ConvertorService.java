@@ -1,8 +1,8 @@
-package com.ccApp.CurrencyConverter.service;
+package com.ccApp.CurrencyConvertor.service;
 
 import java.util.List;
 
-import com.ccApp.CurrencyConverter.model.CurrencyConvertor;
+import com.ccApp.CurrencyConvertor.model.CurrencyConvertor;
 
 public interface ConvertorService {
     

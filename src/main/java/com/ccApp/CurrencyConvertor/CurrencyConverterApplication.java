@@ -1,4 +1,4 @@
-package com.ccApp.CurrencyConverter;
+package com.ccApp.CurrencyConvertor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
