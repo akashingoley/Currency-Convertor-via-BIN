@@ -116,7 +116,7 @@ public class CurrencyConvertor {
 
     public void exchange(String apiKey) {
 
-        // Fecthing date
+        // Fetching date
         long millis = System.currentTimeMillis();
         this.date = new Date(millis);
 
