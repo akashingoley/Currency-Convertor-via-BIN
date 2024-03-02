@@ -20,8 +20,8 @@ public class ConvertorServiceImpl implements ConvertorService {
     }
 
     @Override
-    public void saveData(CurrencyConvertor currencyConverter) {
-        this.convertorRepo.save(currencyConverter);
+    public void saveData(CurrencyConvertor currencyConvertor) {
+        this.convertorRepo.save(currencyConvertor);
     }
 
     @Override

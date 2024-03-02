@@ -7,6 +7,6 @@ import com.ccApp.CurrencyConvertor.model.CurrencyConvertor;
 public interface ConvertorService {
     
     List<CurrencyConvertor> getAllData();
-    void saveData(CurrencyConvertor currencyConverter);
+    void saveData(CurrencyConvertor currencyConvertor);
     void deleteData(Long id);
 }
